@@ -1,0 +1,18 @@
+html
+  body
+   form(action='' method='post')
+     h1 rock paper scissors game
+     input(type='submit' name='option' value='rock')
+     input(type='submit' name='option' value='paper')
+     input(type='submit' name='option' value='scissors')
+    
+   
+   h2 player vs machine
+   h2 #{data.playerOption} - #{data.machineOption}
+
+
+   p player: #{count.player}
+   p machine:  #{count.machine}
+   p draw:   #{count.draw}
+
+   
