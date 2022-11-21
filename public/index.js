@@ -35,5 +35,28 @@ const operation = (player, machine) => {
 
 };
 
-module.exports={ result, operation}; 
 
+let paperBtn = document.getElementById('paperBtn');
+let rockBtn  = document.getElementById('rockBtn');
+let scissors = document.getElementById('scissors');
+
+let messageLocal = document.getElementById('message');
+let record = document.getElementById('record');
+
+
+let myFuntion = nameBtn => {
+  let machine = result();
+
+  let result2 = operation(nameBtn.value, machine);
+  let winner = result2.winner;
+  let message = result2.message;
+  
+  console.log(nameBtn.value);
+
+  record.textContent = `${nameBtn.value} vs ${machine}`; 
+  messageLocal.textContent = message;
+}
+
+rockBtn.onclick = () => myFuntion(rockBtn);
+paperBtn.onclick = () => myFuntion(paperBtn);
+scissorsBtn.onclick = () => myFuntion(scissorsBtn);

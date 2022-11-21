@@ -1,33 +1,12 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
-const {result, operation} = require('./public/index.js')
- 
-let count = {
-    player: 0,
-    machine: 0,
-    draw: 0
-  };
-
-let data = {
-  playerOption: '',
-  machineOption: '',
-  winner: '',
-  message: ''
-}
 
 app.use('/public', express.static(__dirname + '/public'))
-app.use(bodyParser.urlencoded({extended: false}));
-app.set('view engione', 'pug');
-
+app.set('view engine', 'pug');
 
 app.get('/', (req, res) => res.render(
-  __dirname + '/views/index.pug',
-  {
-    count: count,
-    data: data
-  }
+  __dirname + '/views/index.pug'
 ));
 
 app.post('/', (req, res) => {
@@ -53,4 +32,4 @@ app.post('/', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(port, () => console.log(`server listening in ${port}`));
+app.listen(port, () => console.log(`server listening on ${port}`));
