@@ -40,6 +40,18 @@ let paperBtn = document.getElementById('paperBtn');
 let rockBtn  = document.getElementById('rockBtn');
 let scissors = document.getElementById('scissors');
 
+
+let rockCode = '270A';
+let paperCode = '270B';
+let scissorsCode = '270C';
+
+let createEmoticon = (nameBtn, code) => nameBtn.innerText = String.fromCodePoint(parseInt(code, 16));
+
+
+createEmoticon(rockBtn,rockCode);
+createEmoticon(paperBtn,paperCode);
+createEmoticon(scissorsBtn,scissorsCode);
+
 let messageLocal = document.getElementById('message');
 let record = document.getElementById('record');
 
