@@ -80,9 +80,10 @@ let myFuntion = nameBtn => {
   record.textContent = `${nameBtn.value} vs ${machine}`; 
   messageLocal.textContent = message;
 
-	counterVictoriesMessage.textContent = counterVictories;
- 	counterDrawMessage.textContent = counterDraw;
-	counterLossesMessage.textContent = counterLosses;
+	counterVictoriesMessage.textContent = `win: ${counterVictories}`;
+ 	counterDrawMessage.textContent = `draw: ${counterDraw}`;
+	counterLossesMessage.textContent = `loss: ${counterLosses}`;
+
 
 }
 
