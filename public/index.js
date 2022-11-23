@@ -5,6 +5,10 @@ const options = ['rock', 'paper', 'scissors'];
 
 const result = () => options[random(0,3)];
 
+let counterVictories = 0;
+let counterDraw = 0;
+let counterLosses = 0;
+
 const operation = (player, machine) => {
    
   let winner = '';
@@ -14,6 +18,7 @@ const operation = (player, machine) => {
   let machineMessage = `machine won ${machine} > ${player}`;
  
   if(player == machine) {
+    counterDraw++;
     winner = 'draw',
     message = 'draw'
    } else  if(
@@ -23,10 +28,12 @@ const operation = (player, machine) => {
   ){
     winner = 'player';
     message = playerMessage;
+    counterVictories++;
   } else {
 
     winner = 'machine';
     message = machineMessage;
+    counterLosses++;
   }
   return {
     winner: winner,
@@ -55,6 +62,11 @@ createEmoticon(scissorsBtn,scissorsCode);
 let messageLocal = document.getElementById('message');
 let record = document.getElementById('record');
 
+let counterVictoriesMessage = document.getElementById('counterVictories');
+let counterDrawMessage = document.getElementById('counterDraw');
+let counterLossesMessage = document.getElementById('counterLosses');
+
+
 
 let myFuntion = nameBtn => {
   let machine = result();
@@ -64,9 +76,14 @@ let myFuntion = nameBtn => {
   let message = result2.message;
   
   console.log(nameBtn.value);
-
+  
   record.textContent = `${nameBtn.value} vs ${machine}`; 
   messageLocal.textContent = message;
+
+	counterVictoriesMessage.textContent = counterVictories;
+ 	counterDrawMessage.textContent = counterDraw;
+	counterLossesMessage.textContent = counterLosses;
+
 }
 
 rockBtn.onclick = () => myFuntion(rockBtn);
